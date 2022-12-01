@@ -10,7 +10,6 @@ class Puzzle1 {
             Scanner input = new Scanner(file);
             List<Integer> list = new ArrayList<Integer>();
             int count = 0;
-            // read each line of the file and add its value to the list if the line is not empty
             while (input.hasNextLine()) {
                 String line = input.nextLine();
                 if (!line.isEmpty()) {
