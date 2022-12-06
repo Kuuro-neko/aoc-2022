@@ -4,7 +4,6 @@ string = line[0]
 
 def partOne(string):
     for i in range(0, len(string)):
-        print(string[i:i+4])
         if string.count(string[i], i, i+4) == 1 and string.count(string[i+1], i, i+4) == 1 and string.count(string[i+2], i, i+4) == 1 and string.count(string[i+3], i, i+4) == 1:
             return i+4
 
@@ -18,7 +17,6 @@ def partTwo(string):
     string = line[0]
 
     for i in range(0, len(string)):
-        print(string[i:i+14])
         if true_for_all(string, i):
             return i+14
 
