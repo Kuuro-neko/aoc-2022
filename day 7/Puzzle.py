@@ -52,8 +52,15 @@ class Node:
         else:
             return 0
 
-        def __str__(self):
-            return self.name + " " + str(self.type) + " " + str(self.size)
+    def part_two(self, list_of_sizes = []):
+        if self.type == Type.DIR:
+            list_of_sizes.append(self.get_size())
+            for child in self.children:
+                self.children[child].part_two(list_of_sizes)
+        return list_of_sizes
+
+    def __str__(self):
+        return self.name + " " + str(self.type) + " " + str(self.size)
 
 
 file = open('input.txt', 'r')
@@ -64,7 +71,6 @@ starting_node = current_node
 
 for line in lines:
     infos = line.split()
-    print(infos)
     # the only command that have effect is cd, do nothing on ls and create the file/dir when line doesn't start with $
     if infos[0] == '$':
         if infos[1] == 'cd':
@@ -88,7 +94,10 @@ needed_disk_space = 30000000
 occupied_disk_space = starting_node.get_size()
 disk_space_to_free = occupied_disk_space - disk_space + needed_disk_space
 
-print("Part 2 : ")
-print("Disk space : " + str(disk_space) + " | Occupied disk space : " + str(occupied_disk_space) + " | Needed disk space : " + str(needed_disk_space) + " | Disk space to free : " + str(disk_space_to_free))
+list_of_sizes = starting_node.part_two()
+saved_size = disk_space
+for size in list_of_sizes:
+    if size > disk_space_to_free and size < saved_size:
+        saved_size = size
 
-
+print("Part 2 : " + str(saved_size))
