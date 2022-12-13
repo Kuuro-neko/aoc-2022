@@ -39,4 +39,26 @@ for i in range(len(packet)):
     if correct_order(packet[i][0], packet[i][1]):
         sum += i+1
 
-print(sum)
+print("Part 1 - " + str(sum))
+
+# Part 2
+packets = []
+for first, second in (lines[i:i+2] for i in range(0, len(lines), 3)):
+    packets.append(eval(first))
+    packets.append(eval(second))
+
+packets.append([[2]])
+packets.append([[6]])
+
+for i in range(len(packets)):
+    for j in range(len(packets)-1):
+        if not correct_order(packets[j], packets[j+1]):
+            packets[j], packets[j+1] = packets[j+1], packets[j]
+
+for i in range(len(packets)):
+    if packets[i] == [[2]]:
+        index2 = i
+    if packets[i] == [[6]]:
+        index6 = i
+
+print("Part 2 - " + str((index2+1)*(index6+1)))

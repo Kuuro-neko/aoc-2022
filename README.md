@@ -20,4 +20,4 @@ I used Java for day 1 and 2 and Python for all remaining days
 |  [Day 10](https://github.com/Kuuro-neko/aoc-2022/tree/main/day%2010)  |     ★     |      ★      |
 |  [Day 11](https://github.com/Kuuro-neko/aoc-2022/tree/main/day%2011)  |     ★     |      ★      |
 |  [Day 12](https://github.com/Kuuro-neko/aoc-2022/tree/main/day%2012)  |     ★     |      ★      |
-|  [Day 13](https://github.com/Kuuro-neko/aoc-2022/tree/main/day%2013)  |     ★      |             |
+|  [Day 13](https://github.com/Kuuro-neko/aoc-2022/tree/main/day%2013)  |     ★     |      ★      |
